@@ -1,0 +1,1288 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Operating System | LeeZ's blog</title><meta name="keywords" content="OS"><meta name="author" content="LeeZ"><meta name="copyright" content="LeeZ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="OS hard, hard OS! Too many contents! To be continued!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Operating System">
+<meta property="og:url" content="https://lzleee.com/2023/10/24/OS/index.html">
+<meta property="og:site_name" content="LeeZ&#39;s blog">
+<meta property="og:description" content="OS hard, hard OS! Too many contents! To be continued!">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6537cf26c458853aef6b9113.png">
+<meta property="article:published_time" content="2023-10-24T15:00:00.000Z">
+<meta property="article:modified_time" content="2023-10-24T16:01:58.012Z">
+<meta property="article:author" content="LeeZ">
+<meta property="article:tag" content="OS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/6537cf26c458853aef6b9113.png"><link rel="shortcut icon" href="/img/personlogo.jpg"><link rel="canonical" href="https://lzleee.com/2023/10/24/OS/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: LeeZ","link":"链接: ","source":"来源: LeeZ's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Operating System',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-25 00:01:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/headportrait.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic.imgdb.cn/item/6537cf26c458853aef6b9113.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">LeeZ's blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Operating System</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-24T15:00:00.000Z" title="发表于 2023-10-24 23:00:00">2023-10-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-24T16:01:58.012Z" title="更新于 2023-10-25 00:01:58">2023-10-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Learn/">Learn</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><a href="#end">🔚</a></p>
+<h2 id="Linux-cmd">Linux cmd</h2>
+<ul>
+<li>cat
+<ul>
+<li>Concatenate 2 files and print them to the console</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> ex1.txt ex2.txt</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>cd
+<ul>
+<li>change directory</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> .. <span class="comment">#return to the upper directory</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> ~ <span class="comment">#home</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> / <span class="comment">#root</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /Users/lee/desktop/year3/note/try <span class="comment"># absolute path</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>pwd
+<ul>
+<li>print work directory</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">pwd</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>mkdir
+<ul>
+<li>make directory</li>
+<li>-p : create the intermediate directories</li>
+<li>-m : set file mode</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> hello</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> -p note/items/hello</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> -m 700 hello</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>rm
+<ul>
+<li>Remove a file</li>
+<li>-p : remove a directory and its files included</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">rm</span> hello.txt</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">rm</span> hello</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>rmdir
+<ul>
+<li>romve directory(if empty)</li>
+<li>-p : remove an empty directory and its upper directories(if empty)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">rmdir</span> hello</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">rmdir</span> -p hello/note</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>link
+<ul>
+<li>hard link</li>
+<li>-s : symbolic link</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">link</span> hello.txt linkA</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">link</span> -s hello.txt linkB</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>cp
+<ul>
+<li>copy file</li>
+<li>-r : copy a directory</li>
+<li>-i : when there is a same file in the destination, you need to press y to confirm</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cp</span> hello.txt hello/note</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cp</span> -r hello/ mydir/hello</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cp</span> -i hello.txt hello</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>mv
+<ul>
+<li>move file</li>
+<li>rename</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mv</span> hello.txt ex.txt</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mv</span> hello.txt hello</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mv</span> hello/ work/note</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>more
+<ul>
+<li>make a long file into pages</li>
+<li>Space : next page</li>
+<li>b : previous page</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">more hello.txt</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>head
+<ul>
+<li>Print the head of a file</li>
+<li>-n : print n lines of the head of a file</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">head</span> hello.txt</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">head</span> -n 20 heallo.txt</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>tail
+<ul>
+<li>opposite to the “head” command</li>
+</ul>
+</li>
+<li>chmod
+<ul>
+<li>change file mode</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chmod</span> 777 hello.txt</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>ls
+<ul>
+<li>list information of files</li>
+<li>-l : long list that includes more information</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> -l</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x  3 lee  staff  96 10 14 16:56 hello</span><br><span class="line"></span><br><span class="line">//total: the blocks used</span><br><span class="line">//directory with 755 mode</span><br><span class="line">//3 hard link(&quot;.&quot;, &quot;..&quot;, &quot;a subdirectory&quot;)</span><br><span class="line">//lee is the user name</span><br><span class="line">//staff is the group name</span><br><span class="line">//96 is the size, which is 96 bytes</span><br><span class="line">//10 14 16:56 is the last modification time</span><br><span class="line">//hello is the name of this file</span><br></pre></td></tr></table></figure>
+<ul>
+<li><em>pipes</em></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> -l|<span class="built_in">wc</span> <span class="comment"># wc: word count, | : pass the output of command1 to command2</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> -l|<span class="built_in">sort</span> -k5n <span class="comment"># sort long list of directory by size</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>ps
+<ul>
+<li>process status(only the running process from the terminal that the “ps” command ran from)</li>
+<li>-e : list all processes including other users and system processes</li>
+<li>-d : exclude session leaders</li>
+<li>-u : specified user</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">  PID TTY           TIME CMD</span><br><span class="line">26467 ttys000    0:00.02 -zsh</span><br><span class="line"></span><br><span class="line">//ps output(unix from mac)</span><br><span class="line">//pid is the id of the process</span><br><span class="line">//TTY(teletypes) is the terminal that user is logged into</span><br><span class="line">//time is the amount of time that the process has been running</span><br><span class="line">//cmd is the command that executed to launch the process</span><br><span class="line"></span><br><span class="line">  PID TTY          TIME CMD</span><br><span class="line">26223 pts/0    00:00:00 bash</span><br><span class="line">28160 pts/0    00:00:00 ps</span><br><span class="line"></span><br><span class="line">//ps output(linux from remote server)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  PID TTY           TIME CMD</span><br><span class="line">    1 ??        22:22.88 /sbin/launchd</span><br><span class="line">26590 ttys000    0:00.00 ps -e</span><br><span class="line"></span><br><span class="line">//ps -e output(unix from mac)</span><br><span class="line">//? means that the process does not belong to any terminal and is a system process</span><br><span class="line"></span><br><span class="line">  PID TTY          TIME CMD</span><br><span class="line">    1 ?        00:00:02 systemd</span><br><span class="line">29168 pts/0    00:00:00 ps</span><br><span class="line"></span><br><span class="line">//ps -e (linux from remote)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  UID   PID  PPID   C STIME   TTY           TIME CMD</span><br><span class="line">  501 26467 26466   0  9:15上午 ttys000    0:00.04 -zsh</span><br><span class="line">  </span><br><span class="line">//ps -f output(unix from mac)</span><br><span class="line">//uid is the id of users</span><br><span class="line">//ppid id is the id of the parent process</span><br><span class="line">//C is the CPU utilization</span><br><span class="line">//stime is the start time</span><br><span class="line"></span><br><span class="line">  UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">  ubuntu   26223 26222  0 Oct16 pts/0    00:00:00 -bash</span><br><span class="line">  ubuntu   32648 26223  0 00:13 pts/0    00:00:00 ps -f</span><br><span class="line">  </span><br><span class="line">//ps -f (linux from remote)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line">root         1  0.0  0.4 159828  9096 ?        Ss   Oct16   0:02 /sbin/init noibrs</span><br><span class="line"></span><br><span class="line">//ps aux (linux)</span><br><span class="line">//%CPU: the percentage of cpu used</span><br><span class="line">//%MEM: memory usage</span><br><span class="line">//VSZ: virtual memory size in KB</span><br><span class="line">//RSS: resident set size, RAM currently used</span><br><span class="line">//STAT: R(running), S(sleeping), T(stopped), Z(zombie), D(uninterrupted sleeping, IO)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD</span><br><span class="line">0 S   500  5282  5281  0  80   0 -  5999 wait   pts/1    00:00:00 bash</span><br><span class="line">0 R   500  7107  5282  0  80   0 -  7496 -      pts/1    00:00:00 ps</span><br><span class="line"></span><br><span class="line">//ps -l (linux)</span><br><span class="line">//F: process flag, status of a process, octal number</span><br><span class="line">//S: state</span><br><span class="line">//PRI: priority, for scheduling tasks</span><br><span class="line">//NI: niceness, adjustment to priority(-20~+19, lower niceness means higher priority)</span><br><span class="line">//ADDR: address of a process in memory that starts from</span><br><span class="line">//SZ: size in memory, in pages(4096 bytes)</span><br><span class="line">//WCHAN: channel in which a process is waiting</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND</span><br><span class="line">    1 root      20   0  159828   9100   6696 S   0.0  0.4   0:02.86 systemd</span><br><span class="line"></span><br><span class="line">//SHR: shared memory size</span><br><span class="line">//TIME+: cumulative CPU time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sshd───bash───pstree</span><br><span class="line"></span><br><span class="line">systemd───(sd-pam)</span><br><span class="line"></span><br><span class="line">//pstree -u(linux)</span><br><span class="line">//number is the number of threads</span><br></pre></td></tr></table></figure>
+<ul>
+<li>grep
+<ul>
+<li>Global regular expression(match operation)</li>
+</ul>
+</li>
+</ul>
+<h2 id="processes">processes</h2>
+<p>A process is an instance of a running program, with current state and system resources.</p>
+<h3 id="elements">elements</h3>
+<ul>
+<li>program code</li>
+<li>set of data</li>
+<li>process context  – PCB(process control block, uniquely identify)
+<ul>
+<li>key to implement multiprocessing. when a process is interrupted, key data are saved.</li>
+<li>elements
+<ul>
+<li>identifier(unique)</li>
+<li>state</li>
+<li>priority</li>
+<li>PC(program counter)</li>
+<li>memory pointers</li>
+<li>context data</li>
+<li>I/O status information</li>
+<li>accounting information</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="creation">creation</h3>
+<p>when</p>
+<ul>
+<li>new batch job</li>
+<li>interactive log-on</li>
+<li>created by OS to provide a service</li>
+<li>spawned by existing process</li>
+</ul>
+<p>how</p>
+<ol>
+<li>assign a unique process identifier</li>
+<li>allocate space</li>
+<li>initialize PCB</li>
+<li>set linkages(ready linked-list queue)</li>
+<li>create or expand other data structures</li>
+</ol>
+<h3 id="termination">termination</h3>
+<ul>
+<li>normal completion</li>
+<li>time limit exceeded</li>
+<li>memory unavailable</li>
+<li>bounds violation</li>
+<li>arithmetic error</li>
+<li>time overrun</li>
+<li>I/O failure</li>
+<li>Invalid instruction</li>
+<li>Privileged instruction</li>
+<li>Data misuse</li>
+<li>Operator or OS intervention</li>
+<li>Parent termination</li>
+<li>Parent request</li>
+</ul>
+<h3 id="5-state-model">5-state model</h3>
+<ul>
+<li>new  – PCB is created, has not committed to the execution yet</li>
+<li>ready  – prepared to execute</li>
+<li>running  – being executed</li>
+<li>blocked  – cannot be executed for now (such as when there is a I/O process)</li>
+<li>exit  – process that is released</li>
+</ul>
+<p><img src="https://s1.imagehub.cc/images/2023/09/16/-2023-09-16-202620.jpeg" alt=""></p>
+<h4 id="important-transitions">important transitions</h4>
+<ul>
+<li>running <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> ready
+<ul>
+<li>timeout(most)</li>
+<li>OS has a preempted process</li>
+</ul>
+</li>
+<li>running <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> blocked
+<ul>
+<li>request a service(resource)</li>
+<li>initiate an action(I/O)</li>
+<li>other communication between processes</li>
+</ul>
+</li>
+</ul>
+<h4 id="queues">queues</h4>
+<ul>
+<li>ready queue</li>
+<li>blocked queue  – based on different events</li>
+</ul>
+<h4 id="suspending">suspending</h4>
+<p>improve processor efficiency</p>
+<ul>
+<li>
+<p>load more processes</p>
+</li>
+<li>
+<p>swapping(important)  – move blocked processes out of the <strong>main memory</strong> to the disk.(disk I/O is faster than printer I/O)</p>
+</li>
+</ul>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">★</mi></mrow><annotation encoding="application/x-tex">\bigstar</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8867em;vertical-align:-0.1944em;"></span><span class="mord amsrm">★</span></span></span></span> <strong>2 new states</strong></p>
+<ul>
+<li>blocked/suspend</li>
+<li>ready/suspend</li>
+</ul>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">★</mi></mrow><annotation encoding="application/x-tex">\bigstar</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8867em;vertical-align:-0.1944em;"></span><span class="mord amsrm">★</span></span></span></span> <strong>more transitions</strong></p>
+<ul>
+<li>blocked <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> blocked/suspend
+<ul>
+<li>no ready processes. swap out blocked processes to make room for others</li>
+<li>need more <strong>main memory</strong></li>
+</ul>
+</li>
+<li>blocked/suspend <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> ready/suspend
+<ul>
+<li>event occurs</li>
+</ul>
+</li>
+<li>ready/suspend <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> ready
+<ul>
+<li>no ready processes in main memory</li>
+<li>higher-priority process</li>
+</ul>
+</li>
+<li>ready <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> ready/suspend
+<ul>
+<li>need more main memory</li>
+<li>lower-priority process</li>
+</ul>
+</li>
+<li>blocked/suspend <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> blocked
+<ul>
+<li>has free main memory, higher priority</li>
+</ul>
+</li>
+</ul>
+<h3 id="OS-control-structures">OS control structures</h3>
+<ul>
+<li>memory tables
+<ul>
+<li>allocation of main memory, secondary memory</li>
+<li>other information of memory management</li>
+</ul>
+</li>
+<li>I/O tables
+<ul>
+<li>I/O management</li>
+</ul>
+</li>
+<li>file tables
+<ul>
+<li>state of files</li>
+<li>location of files</li>
+</ul>
+</li>
+<li>process tables
+<ul>
+<li>process management</li>
+</ul>
+</li>
+</ul>
+<h3 id="process-control-structures">process control structures</h3>
+<p>process image</p>
+<ul>
+<li>user data</li>
+<li>user program</li>
+<li>stack</li>
+<li>PCB</li>
+</ul>
+<h3 id="process-control">process control</h3>
+<h4 id="modes-of-execution">modes of execution</h4>
+<ul>
+<li>user mode</li>
+<li>kernel mode</li>
+</ul>
+<h4 id="process-switching">process switching</h4>
+<ul>
+<li>ordinary interrupt
+<ul>
+<li>clock interrupt  – program executing for more than allowable time(time slice)</li>
+<li>I/O interrupt</li>
+<li>memory fault</li>
+</ul>
+</li>
+<li>trap
+<ul>
+<li>error/exception occurs
+<ul>
+<li>fatal <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> exit</li>
+<li>not fatal <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> recovery procedure, notify users</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>supervisor call</li>
+</ul>
+<h4 id="mode-switching">mode switching</h4>
+<h4 id="change-of-process-state">change of process state</h4>
+<ol>
+<li>save the context of the processor, eg. PC, SP</li>
+<li>update PCB, eg. update state</li>
+<li>move the PCB to the appropriate queue</li>
+<li>select another process</li>
+<li>update the PCB of the new process</li>
+<li>update memory management data structures</li>
+<li>restore the context of the processor</li>
+</ol>
+<h2 id="scheduling">scheduling</h2>
+<ul>
+<li>
+<p>Pre-konwledge</p>
+<ul>
+<li>the OS runs a lot of processes. But, at any time, one processor runs <strong>only one</strong> process</li>
+<li>Good <strong>analogy</strong>(模拟): dealing with multiple processes</li>
+<li>scheduling can be applied to different areas in the OS</li>
+</ul>
+</li>
+<li>
+<p>aim</p>
+<ul>
+<li>
+<p>Response: be reaponsive(反应热烈的), which means programs <strong>respond</strong> in a <strong>short</strong> time</p>
+</li>
+<li>
+<p>Throughput(吞吐量): For a given time, the processor should complete as <strong>more</strong> processes as possible.</p>
+</li>
+<li>
+<p>Efficiency: Efficiently use resources</p>
+<ul>
+<li>for processor: reduce idle time</li>
+</ul>
+</li>
+<li>
+<p>Prevent process <strong>starvation</strong></p>
+<ul>
+<li>Starvation: not being executed or being denied resources for a long time</li>
+</ul>
+</li>
+<li>
+<p>share time <strong>fairly</strong></p>
+<ul>
+<li>
+<p>Fairly: “batch” jobs &amp; interactive – most throughput &amp; least response time</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> types of processes (a process does not have a fixed type)</p>
+<ul>
+<li>Batch(批量) process(CPU Intensive(密集型)) – longer burst duration, lower frequency</li>
+<li>Interactive process(I/O intensive) – shorter burst duration, higher frequency</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">★</mi></mrow><annotation encoding="application/x-tex">\bigstar</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8867em;vertical-align:-0.1944em;"></span><span class="mord amsrm">★</span></span></span></span> CPU burst: the process is being executed in the CPU</p>
+<h3 id="FCFS-FIFO-First-Come-First-Served">FCFS/FIFO(First-Come-First-Served)</h3>
+<ul>
+<li>process in the order they request CPU</li>
+<li>a ready queue(simple linked list queue) is needed</li>
+<li>Favors CPU intensive process</li>
+<li>the process will not be interrupted because of the long time running</li>
+<li>Disadvantage: short processes have to wait for a long time to complete</li>
+<li>calculation terms:
+<ul>
+<li>waiting time</li>
+<li>average waiting time</li>
+<li>average completion time</li>
+<li>Gantt chart is needed</li>
+</ul>
+</li>
+</ul>
+<h3 id="SJF-Shortest-Job-First">SJF(Shortest Job First)</h3>
+<p>Shortest processes will be served first.</p>
+<p><strong>Non-preemptive &amp; preemptive scheduling(抢占式调度)</strong></p>
+<ul>
+<li>Non-preemptive scheduling
+<ul>
+<li>a process in running state will not be interrupted unless I/O or giving up CPU resources</li>
+<li>FCFS is non-preemptive</li>
+</ul>
+</li>
+<li>Preemptive scheduling
+<ul>
+<li>Preemption(抢先占有)(–a run time interruption) occurs when
+<ul>
+<li>a new process(with higher priority) arrives</li>
+<li>Timer</li>
+<li>on an interrupt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="RR-Round-Robin">RR(Round Robin)</h3>
+<ul>
+<li>features
+<ul>
+<li>preemptive scheduling</li>
+<li>Clock interrupt (an interrupted process will be pushed back of the queue)</li>
+<li>more fair</li>
+</ul>
+</li>
+<li>time quntum(q) size
+<ul>
+<li>too long <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> high computation favors, poor responsiveness</li>
+<li>too short <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> high overhead(开销) of process switching(0.1 ms ~1 ms)</li>
+</ul>
+</li>
+</ul>
+<h3 id="scheduling-with-priority">scheduling with priority</h3>
+<ul>
+<li>features
+<ul>
+<li>Scheduler always choose a process with higher priority</li>
+<li>Can be dynamic(update priorities) or static</li>
+</ul>
+</li>
+<li>priority queuing
+<ul>
+<li>to solve starvation problem
+<ul>
+<li>the priority of processes will change based on their age and history</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>multi-level feedback queues
+<ul>
+<li>to solve starvation
+<ul>
+<li>when a process is blocked or preempted, it will be pushed back of the lower level queue</li>
+<li>Processes in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><msub><mi>Q</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">RQ_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> can be served <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8247em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span></span></span></span> time units</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="File-system">File system</h2>
+<p><strong>DEF</strong>: A File System is a <strong>layer of OS</strong> that <strong>transforms block interface of disks</strong> (or other block devices) into Files, Directories, etc.</p>
+<p><strong>Function</strong>:</p>
+<ul>
+<li>Disk management: disk block <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> files</li>
+<li>Naming: make reference by file name possible</li>
+<li>protection: data security</li>
+<li>Reliability/durability: make data durable against attacks or failures</li>
+</ul>
+<p><strong>different views</strong>:</p>
+<ul>
+<li>User: durable files</li>
+<li>system call interface: collection of bytes</li>
+<li>system inside OS: disk blocks</li>
+</ul>
+<p><strong>Components</strong>:</p>
+<p>file path <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> directory structure <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> file index structure(<strong>inode</strong>) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> data blocks (4KB)</p>
+<h3 id="File">File</h3>
+<ul>
+<li>features
+<ul>
+<li>Non-volatile storage</li>
+<li>named permanent storage</li>
+<li>logic unit of information</li>
+</ul>
+</li>
+<li>contains
+<ul>
+<li>data</li>
+<li>Metadata(元数据): data used to describe data
+<ul>
+<li>Owner</li>
+<li>size</li>
+<li>access rights
+<ul>
+<li>R, W, X(read, write, execute)</li>
+<li>Owner, group, other</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>requirements
+<ul>
+<li>Variable size</li>
+<li>multiple user with protection</li>
+<li>find files(directory structure, search)</li>
+<li>free disk blocks</li>
+</ul>
+</li>
+</ul>
+<h3 id="directory">directory</h3>
+<ul>
+<li>features
+<ul>
+<li>is a file</li>
+<li>can contain files or directories</li>
+</ul>
+</li>
+<li>details
+<ul>
+<li>a list of file name</li>
+<li>pointers to inodes</li>
+</ul>
+</li>
+</ul>
+<h3 id="path-name">path name</h3>
+<ul>
+<li>Absolute path name
+<ul>
+<li>unique</li>
+<li>starts from the root directory</li>
+</ul>
+</li>
+<li>Relative path name
+<ul>
+<li>Based on the current working directory</li>
+</ul>
+</li>
+</ul>
+<h3 id="Opening-closing-files">Opening &amp; closing files</h3>
+<ul>
+<li>information of open files – the OS keeps information about open files
+<ul>
+<li>a system-wide open file table
+<ul>
+<li>Contain information of currently opened file</li>
+<li>eg. Inode information</li>
+</ul>
+</li>
+<li>a pre-process open file table
+<ul>
+<li>a pointer to the syetem open file table</li>
+<li>other information, eg. current file position pointer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>open a file
+<ol>
+<li><em>Open</em> system call reads the inode information, stores it in the system-wide open file table</li>
+<li>the reference of system-wide table is stored in the pre-process table, and <em>open</em> return a pointer towards pre-process table</li>
+</ol>
+</li>
+<li>close a file
+<ul>
+<li>Pre-process table entry is freed</li>
+<li>Data stored in memory cache is written out to the disk</li>
+</ul>
+</li>
+<li>Locks: management of simultaneous access</li>
+</ul>
+<h3 id="Groups-permissions">Groups &amp; permissions</h3>
+<ul>
+<li>Groups:
+<ul>
+<li>owner</li>
+<li>group</li>
+<li>world</li>
+</ul>
+</li>
+<li>permissions
+<ul>
+<li>read – 4</li>
+<li>Write – 2</li>
+<li>Execute – 1</li>
+</ul>
+</li>
+</ul>
+<p>Eg. 744 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> user: rwx, group: r–, world: r–</p>
+<h3 id="Inode">Inode</h3>
+<ul>
+<li>features
+<ul>
+<li>keep metadata</li>
+<li>Keep disk blocks information</li>
+</ul>
+</li>
+<li>details
+<ul>
+<li>Size in bytes</li>
+<li>Device ID</li>
+<li>User ID</li>
+<li>Group ID</li>
+<li>File mode</li>
+<li>timestamps</li>
+<li>link counter</li>
+</ul>
+</li>
+<li>storage
+<ul>
+<li>Early – outermost cylinder disk <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span></span></span></span> poor performance, poor reliability</li>
+<li>now – Spread across the disk closer to the data</li>
+</ul>
+</li>
+</ul>
+<h3 id="File-link">File link</h3>
+<ul>
+<li>hard link
+<ul>
+<li>Two files share the same inode</li>
+<li>Cannot link a directory</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln original link</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Soft(symbolic) link
+<ul>
+<li>Contains the full path of another file</li>
+<li>like a reference(pointer)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s original link</span><br></pre></td></tr></table></figure>
+<h3 id="File-allocation">File allocation</h3>
+<ul>
+<li>
+<p>Contiguous(连续的) file allocation</p>
+<ul>
+<li>entry in file allocation table: start address, length</li>
+<li>easy+good performance</li>
+<li>no full dynamic growth, external fragment(make the rest of the memory little and separated)</li>
+</ul>
+</li>
+<li>
+<p>Linked allocation: FAT( file allocation table)</p>
+<ul>
+<li>a linked list</li>
+</ul>
+</li>
+<li>
+<p>free space management</p>
+<ul>
+<li>method
+<ul>
+<li>
+<p>bit table (bitmap)</p>
+<ul>
+<li>0 – a free block</li>
+<li>1 – a block in use</li>
+<li>Adv: can be used in any file allocation, small size</li>
+</ul>
+</li>
+<li>
+<p>linked list</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>examples</p>
+<ul>
+<li>
+<p>FAT32(file allocation table)</p>
+<ul>
+<li>Root record the start point of a file</li>
+<li>FAT like a linked list. It record the next block(4B) a file uses until the end</li>
+</ul>
+</li>
+<li>
+<p>EXT2(indexed file allocation)</p>
+<ul>
+<li>root record a file has which inode(128B)</li>
+<li>inode have id and the clocks it uses</li>
+<li>Free space: bitma</li>
+</ul>
+</li>
+<li>
+<p>EXT2 is faster than FAT32</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Disk-I-O">Disk &amp; I/O</h2>
+<h3 id="Principle-of-I-O-H-W">Principle of I/O H/W</h3>
+<ul>
+<li>memory device speed
+<ul>
+<li>register &gt; cache &gt; main memory &gt; disk</li>
+</ul>
+</li>
+<li>PCI &amp; IO buses <a href="https://lzleee.com/2023/10/21/concepts1sheet/#pci">&gt;&gt;</a>
+<ul>
+<li>Deal with connection issues</li>
+<li>connect computer devices together</li>
+</ul>
+</li>
+</ul>
+<img src="https://pic.imgdb.cn/item/6537731dc458853aef4ead58.png" width="35%">
+<ul>
+<li>Device controller <a href="https://lzleee.com/2023/10/21/concepts1sheet/#devicectrl">&gt;&gt;</a>
+<ul>
+<li>Deal with IO devices connection issues</li>
+<li>The OS has drivers to “speak” to it</li>
+<li>Cache <a href="https://lzleee.com/2023/10/21/concepts1sheet/#cache">&gt;&gt;</a>
+<ul>
+<li>Data buffer</li>
+<li>store neighbouring sectors</li>
+<li>store recently accessed blocks</li>
+<li>The OS keeps a log to prevent exceptions such as power switching off with data still in buffer</li>
+</ul>
+</li>
+<li>register <a href="https://lzleee.com/2023/10/21/concepts1sheet/#register">&gt;&gt;</a>
+<ul>
+<li>status</li>
+<li>command</li>
+<li>data</li>
+</ul>
+</li>
+<li>tasks
+<ul>
+<li>RW</li>
+<li>Validation/error detection</li>
+<li>communication with CPU</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>OS operates I/O devices
+<ol>
+<li>detect whether the status register is BUSY</li>
+<li>OS writes into data register and controller sets the status register BUSY</li>
+<li>controller reads the command and data register and then launches the executions of them</li>
+<li>The OS detects when the command has been executed based on the status register</li>
+<li>controller either resets the status register or set it ERROR</li>
+</ol>
+</li>
+<li>Memory-Mapped I/O
+<ul>
+<li>target
+<ul>
+<li>solve how CPU communicates with controller registers and data buffers</li>
+</ul>
+</li>
+<li>def: a system that maps all controller registers into the main memory</li>
+<li>features
+<ul>
+<li>some locations in the main memory are reserved only for I/O device</li>
+</ul>
+</li>
+<li>alternatives
+<ul>
+<li>assign each register an I/O port number</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DMA(Direct memory access) <a href="https://lzleee.com/2023/10/21/concepts1sheet/#dma">&gt;&gt;</a></li>
+</ul>
+<img src="https://pic.imgdb.cn/item/6533b6e9c458853aef3bbebc.png" width=80%>
+<img src="https://pic.imgdb.cn/item/65377316c458853aef4e9a87.png" width="70%">
+<h3 id="Principle-of-I-O-S-W">Principle of I/O S/W</h3>
+<h4 id="Programmed-I-O">Programmed I/O</h4>
+<ul>
+<li>actions by the OS</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">copy_from_user(buffer, p, count); 				/* p is the kernel buffer */</span><br><span class="line">for (i = 0; i &lt; count; i++) &#123; 					/* loop on every character */</span><br><span class="line">	while (*printer_status_register != READY); 	        /* loop until ready --polling*/</span><br><span class="line">	*printer_data_register = p[i]; 				/* output one character */</span><br><span class="line">&#125;</span><br><span class="line">return_to_user( );</span><br></pre></td></tr></table></figure>
+<ul>
+<li>characterics
+<ul>
+<li>polling</li>
+</ul>
+</li>
+<li>disadv
+<ul>
+<li>tying up the cpu full time</li>
+</ul>
+</li>
+<li>Adv:
+<ul>
+<li>low overhead</li>
+</ul>
+</li>
+</ul>
+<h4 id="Interrupt-driven-I-O">Interrupt-driven I/O</h4>
+<ul>
+<li>Action by the OS(initialize the I/O)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">copy_from_user(buffer, p, count);</span><br><span class="line">enable_interrupts( ); 				/*allow or permit interrupts to be received*/</span><br><span class="line">while (*printer_status_register != READY);	/*polling to send the first character*/</span><br><span class="line">*printer_data_register = p[0];</span><br><span class="line">scheduler( );					/*run other processes until receiving an interrupt*/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>interrupt handling</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (count == 0) &#123;</span><br><span class="line">	unblock_user( );		/*after all characters are printed, unblock other processes*/</span><br><span class="line">&#125; else &#123;</span><br><span class="line">	*printer_data_register = p[i];</span><br><span class="line">	count = count − 1;</span><br><span class="line">	i = i + 1;</span><br><span class="line">&#125;</span><br><span class="line">acknowledge_interrupt( );		/*successfully handle interrupts*/</span><br><span class="line">return_from_interrupt( );		/*resume the previous processes*/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Adv:
+<ul>
+<li>save CPU time</li>
+<li>Deal with unpredictable events</li>
+</ul>
+</li>
+<li>Disadvantage:
+<ul>
+<li>High overhead <a href="https://lzleee.com/2023/10/21/concepts1sheet/#overhead">&gt;&gt;</a>
+<ul>
+<li>Context switching</li>
+<li>ISR <a href="https://lzleee.com/2023/10/21/concepts1sheet/#interrupthand">&gt;&gt;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="I-O-with-DMA">I/O with DMA</h4>
+<p>I/O with DMA instead of CPU</p>
+<ul>
+<li>action by the OS</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">copy_from_user(buffer, p, count);</span><br><span class="line">set_up_DMA_controller( ); </span><br><span class="line">scheduler( ); </span><br></pre></td></tr></table></figure>
+<ul>
+<li>Interrupt handling</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">acknowledge_interrupt( );</span><br><span class="line">unblock_user( );</span><br><span class="line">return_from_interrupt( );</span><br></pre></td></tr></table></figure>
+<h3 id="I-O-S-W-layers">I/O S/W layers</h3>
+<h4 id="Device-independent-s-w">Device-independent s/w</h4>
+<ul>
+<li>functions
+<ul>
+<li>Uniform interfacing for device drivers</li>
+<li>Buffering</li>
+<li>Error reporting</li>
+<li>Allocating and releasing dedicated devices</li>
+<li>Providing a device-independent block size</li>
+</ul>
+</li>
+</ul>
+<h4 id="Interrupt-Handlers">Interrupt Handlers</h4>
+<ul>
+<li>Def: is a special block of code associated with a specific interrupt condition in computer system.<a href="https://lzleee.com/2023/10/21/concepts1sheet/#interrupthand">&gt;&gt;</a></li>
+</ul>
+<h4 id="Device-driver">Device driver</h4>
+<ul>
+<li>Def: device-specific code for controlling the device attached to a computer<a href="https://lzleee.com/2023/10/21/concepts1sheet/#devicedriver">&gt;&gt;</a></li>
+</ul>
+<img src="https://pic.imgdb.cn/item/65376c73c458853aef3bb08b.png" width="70%">
+<h3 id="Disks">Disks</h3>
+<ul>
+<li>
+<p>hard disk</p>
+<ul>
+<li>track</li>
+<li>cylinder</li>
+<li>sector</li>
+<li>head</li>
+</ul>
+</li>
+<li>
+<p>addressing method</p>
+<ul>
+<li>
+<p>CHS(cylinder head sector)</p>
+</li>
+<li>
+<p>LBA(logical block addressing)</p>
+<ul>
+<li>linear</li>
+</ul>
+</li>
+<li>
+<p>Method: conversion</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mi>B</mi><mi>A</mi><mo>=</mo><mi>C</mi><mo>∗</mo><mi>H</mi><mi>P</mi><mi>C</mi><mo>∗</mo><mi>S</mi><mi>P</mi><mi>T</mi><mo>+</mo><mi>H</mi><mo>∗</mo><mi>S</mi><mi>P</mi><mi>T</mi><mo>+</mo><mo stretchy="false">(</mo><mi>S</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><mi>i</mi><mi>n</mi><mi>v</mi><mi mathvariant="normal">.</mi><mspace linebreak="newline"></mspace><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>S</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>L</mi><mi>B</mi><mi>A</mi><mtext>  </mtext><mi>m</mi><mi>o</mi><mi>d</mi><mtext>  </mtext><mi>S</mi><mi>P</mi><mi>T</mi><mo>+</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>H</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>L</mi><mi>B</mi><mi>A</mi><mtext>  </mtext><mi>d</mi><mi>i</mi><mi>v</mi><mtext>  </mtext><mi>S</mi><mi>P</mi><mi>T</mi><mtext>  </mtext><mi>m</mi><mi>o</mi><mi>d</mi><mtext>  </mtext><mi>H</mi><mi>P</mi><mi>C</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>C</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>L</mi><mi>B</mi><mi>A</mi><mtext>  </mtext><mi>d</mi><mi>i</mi><mi>v</mi><mtext>  </mtext><mi>S</mi><mi>P</mi><mi>T</mi><mtext>  </mtext><mi>d</mi><mi>i</mi><mi>v</mi><mtext>  </mtext><mi>H</mi><mi>P</mi><mi>C</mi></mrow></mstyle></mtd></mtr></mtable></mrow><annotation encoding="application/x-tex">LBA=C*HPC*SPT+H*SPT+(S-1)\nonumber\\
+inv.\\
+\begin{align}
+S&amp;=LBA\ \ mod\ \ SPT + 1\nonumber\\
+H&amp;=LBA\ \ div\ \ SPT\ \ mod\ \ HPC\nonumber\\
+C&amp;=LBA\ \ div\ \ SPT\ \ div\ \ HPC\nonumber
+\end{align}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.07153em;">PC</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">SPT</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">SPT</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">in</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">.</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:4.5em;vertical-align:-2em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span><span style="top:-1.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">A</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal">m</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.13889em;">SPT</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">A</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.13889em;">SPT</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal">m</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.07153em;">PC</span></span></span><span style="top:-1.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">A</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.13889em;">SPT</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.07153em;">PC</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>HPC: heads per cylinder</p>
+<p>SPT: sectors per track</p>
+<p>Suppose: start with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mn>0</mn><mo separator="true">,</mo><mtext> </mtext><mi>H</mi><mo>=</mo><mn>0</mn><mtext> </mtext><mo separator="true">,</mo><mi>S</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">C=0,\ H=0\ ,S=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mspace"> </span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Performance: delay</p>
+<ul>
+<li>Seek time: time to position head over the required track/cylinder</li>
+<li>rotational delay: time to make the proper sector to appear under the head</li>
+<li>transfer delay: time to transfer a block of bits(sectore) under r/w head</li>
+</ul>
+</li>
+</ul>
+<h4 id="Disk-scheduling">Disk scheduling</h4>
+<ul>
+<li>FIFO
+<ul>
+<li>First in first out, first come first served</li>
+<li>the most fair</li>
+</ul>
+</li>
+<li>SSTF
+<ul>
+<li>Shortest seek time first</li>
+<li>move from the current position to the closest position</li>
+<li>Adv: reduce seek time</li>
+<li>Disadv: stravation</li>
+</ul>
+</li>
+<li>SCAN
+<ul>
+<li>elevator algorithm</li>
+<li>take the closest request in the current <strong>direction</strong></li>
+<li>Adv: no stravation</li>
+<li>Disadv: not fair</li>
+</ul>
+</li>
+<li>C-SCAN
+<ul>
+<li>circular SCAN algorithm</li>
+<li>SCAN but when reach the end of the travel, move to the opposite end of the disk</li>
+<li>Fairer than C-SCAN</li>
+</ul>
+</li>
+<li>anticipatory I/O scheduler
+<ul>
+<li>in linux</li>
+<li>because
+<ul>
+<li>Process requests access more likely to data close by --locality of reference<a href="https://lzleee.com/2023/10/21/concepts1sheet/#localityofref">&gt;&gt;</a></li>
+<li>Too fast scan will make close requests left behind</li>
+</ul>
+</li>
+<li>how
+<ul>
+<li>introducing a small delay to wait for issuing a request to nearby blocks</li>
+</ul>
+</li>
+<li>Adv
+<ul>
+<li>get faster overall I/O</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="SSD">SSD</h4>
+<p>solid state drive</p>
+<ul>
+<li>
+<p>NAND flash memory – trap electrons with transistors</p>
+</li>
+<li>
+<p>SLC&amp;MLC</p>
+<ul>
+<li>SLC – single level cell
+<ul>
+<li>1bit per cell</li>
+<li>Fast, high endurance, expensive</li>
+</ul>
+</li>
+<li>MLC – multi-level cell
+<ul>
+<li>mutiple bits per cell</li>
+<li>Slow, low endurance, cheap</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>flash chip structure</p>
+<ul>
+<li>
+<p>Chips organised into banks</p>
+<img src="https://pic.imgdb.cn/item/6536292ec458853aef10d6d1.png" width="50%" height="50%">
+</li>
+<li>
+<p>banks are divided into blocks(256KB)</p>
+</li>
+<li>
+<p>blocks are divided into pages(4KB)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>R/W/E(erasing)</p>
+<ul>
+<li>
+<p>No seek and rotational delay</p>
+</li>
+<li>
+<p>reading</p>
+<ul>
+<li>Unit: pages</li>
+<li>Performance: 10 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">\mu s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span></li>
+<li>orders of mangnitude faster than HDD</li>
+</ul>
+</li>
+<li>
+<p>writing</p>
+<ul>
+<li>Need erasing a <strong>block</strong> before writing a <strong>page</strong></li>
+<li>set bits to 0</li>
+<li>Performance: 200 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">\mu s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span><span class="mord mathnormal">s</span></span></span></span></li>
+</ul>
+</li>
+<li>
+<p>erasing</p>
+<ul>
+<li>Set bits to 1</li>
+<li>Copies back data that should not be lost</li>
+<li>Performance: 1~2 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">ms</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span><span class="mord mathnormal">s</span></span></span></span></li>
+</ul>
+<p><em><strong>Note:</strong></em> performance –<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><mn>10</mn><mo>×</mo><mi>R</mi><mo separator="true">,</mo><mtext> </mtext><mi>E</mi><mo>=</mo><mn>10</mn><mo>×</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">W=10\times R,\ E=10\times W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">10</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">10</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span></p>
+</li>
+</ul>
+</li>
+<li>
+<p>🆚  HDD</p>
+<ul>
+<li>random access I/O
+<ul>
+<li>Less delay</li>
+</ul>
+</li>
+<li>Sequential access I/O
+<ul>
+<li>Differences are smaller</li>
+</ul>
+</li>
+<li>more reliable because of not having mechanical parts</li>
+<li>long lifespan</li>
+<li>light</li>
+<li>low power</li>
+<li>silent</li>
+<li>very shock insensitive</li>
+</ul>
+</li>
+</ul>
+<p><span id="end"></span></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://lzleee.com">LeeZ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://lzleee.com/2023/10/24/OS/">https://lzleee.com/2023/10/24/OS/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://lzleee.com" target="_blank">LeeZ's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/OS/">OS</a></div><div class="post_share"><div class="social-share" data-image="https://pic.imgdb.cn/item/6537cf26c458853aef6b9113.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/10/21/concepts1sheet/"><img class="next-cover" src="https://pic.imgdb.cn/item/6533f89dc458853aef57fbda.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Concepts 1 Sheet</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Waline</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/headportrait.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">LeeZ</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Lzleee"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lzleee" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:849770190@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">All feelings are important! <ul> <li>OS</li> <li>Concepts 1 Sheet --NEW</li> </ul></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-cmd"><span class="toc-number">1.</span> <span class="toc-text">Linux cmd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#processes"><span class="toc-number">2.</span> <span class="toc-text">processes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#elements"><span class="toc-number">2.1.</span> <span class="toc-text">elements</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#creation"><span class="toc-number">2.2.</span> <span class="toc-text">creation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#termination"><span class="toc-number">2.3.</span> <span class="toc-text">termination</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-state-model"><span class="toc-number">2.4.</span> <span class="toc-text">5-state model</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#important-transitions"><span class="toc-number">2.4.1.</span> <span class="toc-text">important transitions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#queues"><span class="toc-number">2.4.2.</span> <span class="toc-text">queues</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#suspending"><span class="toc-number">2.4.3.</span> <span class="toc-text">suspending</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OS-control-structures"><span class="toc-number">2.5.</span> <span class="toc-text">OS control structures</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#process-control-structures"><span class="toc-number">2.6.</span> <span class="toc-text">process control structures</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#process-control"><span class="toc-number">2.7.</span> <span class="toc-text">process control</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#modes-of-execution"><span class="toc-number">2.7.1.</span> <span class="toc-text">modes of execution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#process-switching"><span class="toc-number">2.7.2.</span> <span class="toc-text">process switching</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mode-switching"><span class="toc-number">2.7.3.</span> <span class="toc-text">mode switching</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#change-of-process-state"><span class="toc-number">2.7.4.</span> <span class="toc-text">change of process state</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scheduling"><span class="toc-number">3.</span> <span class="toc-text">scheduling</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FCFS-FIFO-First-Come-First-Served"><span class="toc-number">3.1.</span> <span class="toc-text">FCFS&#x2F;FIFO(First-Come-First-Served)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SJF-Shortest-Job-First"><span class="toc-number">3.2.</span> <span class="toc-text">SJF(Shortest Job First)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RR-Round-Robin"><span class="toc-number">3.3.</span> <span class="toc-text">RR(Round Robin)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scheduling-with-priority"><span class="toc-number">3.4.</span> <span class="toc-text">scheduling with priority</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-system"><span class="toc-number">4.</span> <span class="toc-text">File system</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#File"><span class="toc-number">4.1.</span> <span class="toc-text">File</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#directory"><span class="toc-number">4.2.</span> <span class="toc-text">directory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#path-name"><span class="toc-number">4.3.</span> <span class="toc-text">path name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Opening-closing-files"><span class="toc-number">4.4.</span> <span class="toc-text">Opening &amp; closing files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Groups-permissions"><span class="toc-number">4.5.</span> <span class="toc-text">Groups &amp; permissions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inode"><span class="toc-number">4.6.</span> <span class="toc-text">Inode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File-link"><span class="toc-number">4.7.</span> <span class="toc-text">File link</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File-allocation"><span class="toc-number">4.8.</span> <span class="toc-text">File allocation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Disk-I-O"><span class="toc-number">5.</span> <span class="toc-text">Disk &amp; I&#x2F;O</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Principle-of-I-O-H-W"><span class="toc-number">5.1.</span> <span class="toc-text">Principle of I&#x2F;O H&#x2F;W</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Principle-of-I-O-S-W"><span class="toc-number">5.2.</span> <span class="toc-text">Principle of I&#x2F;O S&#x2F;W</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Programmed-I-O"><span class="toc-number">5.2.1.</span> <span class="toc-text">Programmed I&#x2F;O</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Interrupt-driven-I-O"><span class="toc-number">5.2.2.</span> <span class="toc-text">Interrupt-driven I&#x2F;O</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#I-O-with-DMA"><span class="toc-number">5.2.3.</span> <span class="toc-text">I&#x2F;O with DMA</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-O-S-W-layers"><span class="toc-number">5.3.</span> <span class="toc-text">I&#x2F;O S&#x2F;W layers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Device-independent-s-w"><span class="toc-number">5.3.1.</span> <span class="toc-text">Device-independent s&#x2F;w</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Interrupt-Handlers"><span class="toc-number">5.3.2.</span> <span class="toc-text">Interrupt Handlers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Device-driver"><span class="toc-number">5.3.3.</span> <span class="toc-text">Device driver</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disks"><span class="toc-number">5.4.</span> <span class="toc-text">Disks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Disk-scheduling"><span class="toc-number">5.4.1.</span> <span class="toc-text">Disk scheduling</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSD"><span class="toc-number">5.4.2.</span> <span class="toc-text">SSD</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/24/OS/" title="Operating System"><img src="https://pic.imgdb.cn/item/6537cf26c458853aef6b9113.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Operating System"/></a><div class="content"><a class="title" href="/2023/10/24/OS/" title="Operating System">Operating System</a><time datetime="2023-10-24T15:00:00.000Z" title="发表于 2023-10-24 23:00:00">2023-10-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/21/concepts1sheet/" title="Concepts 1 Sheet"><img src="https://pic.imgdb.cn/item/6533f89dc458853aef57fbda.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Concepts 1 Sheet"/></a><div class="content"><a class="title" href="/2023/10/21/concepts1sheet/" title="Concepts 1 Sheet">Concepts 1 Sheet</a><time datetime="2023-10-21T15:00:00.000Z" title="发表于 2023-10-21 23:00:00">2023-10-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/01/machineLearning1/" title="Machine Learning"><img src="https://codingcompiler.com/wp-content/uploads/2019/07/What-is-Machine-Learning.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Machine Learning"/></a><div class="content"><a class="title" href="/2023/09/01/machineLearning1/" title="Machine Learning">Machine Learning</a><time datetime="2023-09-01T15:00:00.000Z" title="发表于 2023-09-01 23:00:00">2023-09-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/28/Database/" title="Database Revision"><img src="https://www.insightsintoimpact.com/wp-content/uploads/2018/01/database-graphic-hi-res.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Database Revision"/></a><div class="content"><a class="title" href="/2023/05/28/Database/" title="Database Revision">Database Revision</a><time datetime="2023-05-28T11:53:00.000Z" title="发表于 2023-05-28 19:53:00">2023-05-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/25/DigitalCircuitDesign/" title="Digital Circuit Design Revision"><img src="https://ubi-global.com/wp-content/uploads/Photo-Tech-3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Digital Circuit Design Revision"/></a><div class="content"><a class="title" href="/2023/05/25/DigitalCircuitDesign/" title="Digital Circuit Design Revision">Digital Circuit Design Revision</a><time datetime="2023-05-25T03:53:00.000Z" title="发表于 2023-05-25 11:53:00">2023-05-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By LeeZ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'pHPLnXTcZaaY2f3qP3K97Z5z-gzGzoHsz',
+      appKey: 'NgbzDzKvxGCGhUUI1dmXbu3F',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://waline-in-blog.vercel.app',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Valine' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="+1,like,up,win" data-fontsize="12px" data-random="true" async="async"></script></div></body></html>
