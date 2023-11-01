@@ -1,0 +1,741 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Reliable Data Transfer | LeeZ's blog</title><meta name="keywords" content="Computer Network"><meta name="author" content="LeeZ"><meta name="copyright" content="LeeZ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Let&#39;s create a reliable data transfer protocol!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reliable Data Transfer">
+<meta property="og:url" content="https://lzleee.com/2023/11/01/RDT/index.html">
+<meta property="og:site_name" content="LeeZ&#39;s blog">
+<meta property="og:description" content="Let&#39;s create a reliable data transfer protocol!">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/65424707c458853aefa5a98c.png">
+<meta property="article:published_time" content="2023-11-01T12:40:00.000Z">
+<meta property="article:modified_time" content="2023-11-01T13:01:19.241Z">
+<meta property="article:author" content="LeeZ">
+<meta property="article:tag" content="Computer Network">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/65424707c458853aefa5a98c.png"><link rel="shortcut icon" href="/img/personlogo.jpg"><link rel="canonical" href="https://lzleee.com/2023/11/01/RDT/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: LeeZ","link":"链接: ","source":"来源: LeeZ's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Reliable Data Transfer',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-01 21:01:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/headportrait.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic.imgdb.cn/item/65424707c458853aefa5a98c.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">LeeZ's blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Reliable Data Transfer</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-01T12:40:00.000Z" title="发表于 2023-11-01 20:40:00">2023-11-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-01T13:01:19.241Z" title="更新于 2023-11-01 21:01:19">2023-11-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Learn/">Learn</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="RDT-reliable-data-transfer">RDT(reliable data transfer)</h3>
+<ul>
+<li>Capabilities
+<ul>
+<li>Error detection</li>
+<li>Receive feedback</li>
+<li>Retransmission(RDT based on retransmission is also called <em><strong>ARQ(automatically repeat request)</strong></em>)</li>
+</ul>
+</li>
+</ul>
+<h4 id="Stop-and-wait">Stop-and-wait</h4>
+<p><em>Let’s build a reliable data transfer protocol!</em> 🌟</p>
+<ul>
+<li>
+<p>RDT2.0(reliable data transfer) 🌟</p>
+<ul>
+<li>Sending process
+<ul>
+<li>Receive data from upper layer</li>
+<li>Make a packet</li>
+<li>Send the packet</li>
+<li>Waiting
+<ul>
+<li>Receive ACK
+<ul>
+<li>Exit waiting</li>
+</ul>
+</li>
+<li>Receive NAK
+<ul>
+<li>Resend</li>
+<li>Keep waiting</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Next</li>
+</ul>
+</li>
+<li>Receiving process
+<ul>
+<li>Receive the packet</li>
+<li>Checking
+<ul>
+<li>Corrupt
+<ul>
+<li>Send NAK</li>
+<li>Exit checking</li>
+</ul>
+</li>
+<li>Not corrupt
+<ul>
+<li>Extract data</li>
+<li>Deliver data to next layer</li>
+<li>Send ACK</li>
+<li>Exit checking</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Next</li>
+</ul>
+</li>
+<li>Problems
+<ul>
+<li><em><strong>Corrupt ACK/NAK</strong></em>
+<ul>
+<li>Error</li>
+<li>Lost</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3 ways
+<ul>
+<li>Sender asking
+<ul>
+<li>Receiver have no idea whether it is a new packet or request for repeating</li>
+</ul>
+</li>
+<li>checksum
+<ul>
+<li>Not solving “lost” problem</li>
+</ul>
+</li>
+<li>Resending when NAK/corrupt ACK
+<ul>
+<li>Receiver have no idea sender have received ACK or not. Then it’s hard for receiver to find out the new packet is the previous one or the new one.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>final method
+<ul>
+<li>Resending (3rd method)</li>
+<li>SN(sequence number) for packets</li>
+<li>1-bit number(SN mod 2 can achieve)</li>
+<li>Introduce RDT2.1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>RDT2.1 🌟</p>
+<ul>
+<li>Sender
+<ul>
+<li>Receive data from upper layer</li>
+<li>Make a packet(+ SN mod 2)</li>
+<li>Send the packet</li>
+<li>Waiting
+<ul>
+<li>Receive ACK
+<ul>
+<li>Exit waiting</li>
+</ul>
+</li>
+<li>Receive NAK/corrupt packet
+<ul>
+<li>Resend</li>
+<li>Keep waiting</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Next (SN+1)</li>
+</ul>
+</li>
+<li>Receiver
+<ul>
+<li>Receive the packet</li>
+<li>Checking
+<ul>
+<li>Waiting for 1(SN mod 2=1)
+<ul>
+<li>Corrupt
+<ul>
+<li>Send NAK</li>
+<li>Keep waiting</li>
+</ul>
+</li>
+<li>Receive 0(<em><strong>duplicate one</strong></em>)
+<ul>
+<li>Send ACK</li>
+<li>Keep waiting</li>
+</ul>
+</li>
+<li>Receive 1
+<ul>
+<li>Extract and deliver</li>
+<li>Send ACK</li>
+<li>Exit waiting</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Waiting for 0(SN mod 2=0)
+<ul>
+<li>Corrupt
+<ul>
+<li>Send NAK</li>
+<li>Keep waiting</li>
+</ul>
+</li>
+<li>Receive 1(<em><strong>duplicate one</strong></em>)
+<ul>
+<li>Send ACK</li>
+<li>Keep waiting</li>
+</ul>
+</li>
+<li>Receive 0
+<ul>
+<li>Extract and deliver</li>
+<li>Send ACK</li>
+<li>Exit waiting</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Next(waiting +1)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>RDT2.2 🌟</p>
+<ul>
+<li>What’s new
+<ul>
+<li>No more NAK</li>
+<li>SN in ACK</li>
+</ul>
+</li>
+<li>Sender
+<ul>
+<li>Receive data from upper layer</li>
+<li>Make a packet(+ SN mod 2)</li>
+<li>Send the packet</li>
+<li>Waiting
+<ul>
+<li>Waiting for ACK 0(having sent the packet(SN mod 2=0))
+<ul>
+<li>Receive ACK 0
+<ul>
+<li>Exit waiting</li>
+</ul>
+</li>
+<li>Receive ACK 1/corrupt ACK
+<ul>
+<li>Resend</li>
+<li>Keep waiting</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Waiting for ACK 1(having sent the packet(SN mod 2=1))
+<ul>
+<li>Receive ACK 1
+<ul>
+<li>Exit waiting</li>
+</ul>
+</li>
+<li>Receive ACK 0/corrupt ACK
+<ul>
+<li>Resend</li>
+<li>Keep waiting</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Next (SN+1)</li>
+</ul>
+</li>
+<li>Receiver
+<ul>
+<li>Receive the packet</li>
+<li>Checking
+<ul>
+<li>Waiting for 1(SN mod 2=1)
+<ul>
+<li>Corrupt /Receive 0(duplicate one)
+<ul>
+<li>Send ACK 0</li>
+<li>Keep waiting</li>
+</ul>
+</li>
+<li>Receive 1
+<ul>
+<li>Extract and deliver</li>
+<li>Send ACK 1</li>
+<li>Exit waiting</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Waiting for 0(SN mod 2=0)
+<ul>
+<li>Corrupt /Receive 1(duplicate one)
+<ul>
+<li>Send ACK 1</li>
+<li>Keep waiting</li>
+</ul>
+</li>
+<li>Receive 0
+<ul>
+<li>Extract and deliver</li>
+<li>Send ACK 0</li>
+<li>Exit waiting</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Next(waiting +1)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>RDT3.0(alternating-bit protocol)</p>
+<ul>
+<li>What’s new
+<ul>
+<li>Deal with lossy channel, which is common</li>
+<li>Introduce cutdown timer
+<ul>
+<li>Start the timer for each packet</li>
+<li>Timer interrupt</li>
+<li>Stop the timer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Sender
+<ul>
+<li>Receive data from upper layer</li>
+<li>Make a packet(+ SN mod 2)</li>
+<li>Send the packet</li>
+<li>Start the timer</li>
+<li>Waiting
+<ul>
+<li>Waiting for ACK 0(having sent the packet(SN mod 2=0))
+<ul>
+<li>Receive ACK 0
+<ul>
+<li>Stop the timer</li>
+<li>Exit waiting</li>
+</ul>
+</li>
+<li>Receive ACK 1/corrupt ACK
+<ul>
+<li>None</li>
+</ul>
+</li>
+<li>Timeout
+<ul>
+<li>Resend</li>
+<li>Restart the timer</li>
+<li>Keep waiting</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Waiting for ACK 1(having sent the packet(SN mod 2=1))
+<ul>
+<li>Receive ACK 1
+<ul>
+<li>Stop the timer</li>
+<li>Exit waiting</li>
+</ul>
+</li>
+<li>Receive ACK 0/corrupt ACK
+<ul>
+<li>None</li>
+</ul>
+</li>
+<li>Timeout
+<ul>
+<li>Resend</li>
+<li>Restart the timer</li>
+<li>Keep waiting</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Next (SN+1)</li>
+</ul>
+</li>
+<li>Receiver
+<ul>
+<li>The same as RDT2.2</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src="https://pic.imgdb.cn/item/65410837c458853aef562e3a.png" width="60%">
+<p><em>A reliable data transfer protocol(3.0) has been created!</em> 🌟</p>
+<ul>
+<li>New problems
+<ul>
+<li>How to achieve high efficiency?
+<ul>
+<li>Pipelining</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Consequences for RDT
+<ul>
+<li>Unique SN</li>
+<li>Both sides have buffer</li>
+<li>Error control
+<ul>
+<li>GBN</li>
+<li>Selective repeat</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="GBN-Go-Back-N">GBN(Go-Back-N)</h4>
+<img src="https://pic.imgdb.cn/item/65410744c458853aef52be0d.png" width=70%>
+<ul>
+<li>Base: The oldest unacknowledged packet</li>
+<li>Nextseqnum: The next packet to be sent</li>
+<li>Window size(N): used for flow control</li>
+<li>SN issues: As the number of bits in header is fixed(eg. k, (32 bits)TCP), SN need do modular arithmetic(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>o</mi><mi>d</mi><mtext>  </mtext><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">mod\ \ 2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord mathnormal">m</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span>)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>&lt;</mo><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">N&lt;2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//sender</span></span><br><span class="line">base=<span class="number">1</span>;</span><br><span class="line">nextseqnum=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">  getData(data);<span class="comment">//from upper layer</span></span><br><span class="line">  <span class="keyword">if</span>(nextseqnum&lt;base+N)&#123;</span><br><span class="line">    sndpkt[nextseqnum]=make_pkt(nextseqnum,data,checksum);</span><br><span class="line">    send(sndpkt[nextseqnum]);</span><br><span class="line">    <span class="keyword">if</span>(base==nextseqnum)</span><br><span class="line">    	start_timer;</span><br><span class="line">    nextseqnum++;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    refuse_data(data);</span><br><span class="line">	<span class="keyword">if</span>(timeout)&#123;</span><br><span class="line">    start_timer;</span><br><span class="line">    send(sndpkt[base]);</span><br><span class="line">    send(sndpkt[base+<span class="number">1</span>]);</span><br><span class="line">    ...</span><br><span class="line">    send(sndpkt[nextseqnum<span class="number">-1</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(receive(rcvpkt))&#123;</span><br><span class="line">    <span class="keyword">if</span>(notcorrupt(rcvpkt))&#123;</span><br><span class="line">      base=getacknum(rcvpkt)+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(base==nextseqnum)</span><br><span class="line">     	stop_timer;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">     	start_timer;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//receiver</span></span><br><span class="line">expectedseqnum=<span class="number">1</span>;</span><br><span class="line">sndpkt=make_pkt(<span class="number">0</span>,ACK,checksum);</span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(receive(rcvpkt))&#123;</span><br><span class="line">    <span class="keyword">if</span>(notcorrupt(rcvpkt)&amp;&amp;hasseqnum(rcvpkt,expectedseqnum))&#123;</span><br><span class="line">    	extract(rcvpkt,data);</span><br><span class="line">      deliver_data(data);<span class="comment">//deliver to next layer</span></span><br><span class="line">      sndpkt=make_pkt(expectedseqnum,ACK,checksum);</span><br><span class="line">      send(sndpkt);</span><br><span class="line">      expectedseqnum++;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      send(sndpkt);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Why discard all packets after the unacknowledged one?
+<ul>
+<li>Sender will resend, so they will not be lost</li>
+<li>Simplify the receiver buffer</li>
+</ul>
+</li>
+</ul>
+<h4 id="SR-selective-repeat">SR(selective repeat)</h4>
+<ul>
+<li>What’s new
+<ul>
+<li>Compare to GBN
+<ul>
+<li>Sloving the problem that when a large number of packets are in the channel, GBN becomes time-consuming</li>
+</ul>
+</li>
+<li>Avoid unnecessary retransmissions</li>
+</ul>
+</li>
+</ul>
+<img src="https://pic.imgdb.cn/item/6541b570c458853aef0a0766.png" alt="Screenshot 2023-11-01 at 10.18.10.png" width=60%>
+<ul>
+<li>Sender
+<ul>
+<li>Receive data from upper layer
+<ul>
+<li>The same as GBN</li>
+</ul>
+</li>
+<li>Timeout
+<ul>
+<li>Now each packet has its own logical timer</li>
+<li>Only send the one packet when its timer expires</li>
+</ul>
+</li>
+<li>ACK received
+<ul>
+<li>The same as GBN</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Receiver
+<ul>
+<li>Packets with SN in rcv window(rcv_base ~ rcd_base+N-1) is correctly received
+<ul>
+<li>Not received previously
+<ul>
+<li>buffered</li>
+</ul>
+</li>
+<li>SN == rcv_base
+<ul>
+<li>Rcv_base one and all previously buffered &amp; conescutively numbered packets are all passed to the next layer</li>
+<li>Window moves forward by the number of packets delivered</li>
+<li>Send ACK</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Packets with SN in [rcv_base-N, rcv_base-1] –<em>ensure the window of send slides</em>
+<ul>
+<li>Send ACK</li>
+<li>Not buffered</li>
+</ul>
+</li>
+<li>Other packets
+<ul>
+<li>Ignore them</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SR delima with too-large window size</li>
+</ul>
+<img src="https://pic.imgdb.cn/item/6541c3c2c458853aef2f5083.png" alt="Screenshot 2023-11-01 at 11.19.10.png" width="50%">
+<p>🌟 How to solve</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>N</mi><mtext>  </mtext><mi>m</mi><mi>o</mi><mi>d</mi><mtext>  </mtext><msup><mn>2</mn><mi>k</mi></msup><mo>⩾</mo><mn>2</mn><mi>w</mi></mrow><annotation encoding="application/x-tex">SN\ \ mod\ \ 2^k\geqslant 2w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9858em;vertical-align:-0.1367em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">SN</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal">m</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">⩾</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span>
+<ul>
+<li>w is the window size</li>
+<li>Why?
+<ul>
+<li>We must make sure the sum of w of both sides less than or equal to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>N</mi><mtext>  </mtext><mi>m</mi><mi>o</mi><mi>d</mi><mtext>  </mtext><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">SN\ \ mod\ \ 2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">SN</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord mathnormal">m</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mspace"> </span><span class="mspace"> </span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span>, then all previous ones with SN can be distinguished. We cannot recognize a previous one as a new one</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>We have built amazing RDT protocols! Now, let’s see what’s new in RDT of TCP.</em></p>
+<h3 id="RDT-in-TCP">RDT in TCP</h3>
+<ul>
+<li>Point 1: Practically, timer requires considerable overhead
+<ul>
+<li>Try to follow one-timer retransmission</li>
+</ul>
+</li>
+<li>Point 2: Use cumulative acknowledgements
+<ul>
+<li>The acknowledgment number that receiver puts in its segment is the sequence number of the next byte receiver is expecting from sender.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Assume sender is not constrained by TCP flow or congestion control, that data from above is less</span></span><br><span class="line"><span class="comment">than MSS in size, and that data transfer is in one direction only. */</span></span><br><span class="line">NextSeqNum=InitialSeqNumber</span><br><span class="line">SendBase=InitialSeqNumber</span><br><span class="line">loop (forever) &#123;</span><br><span class="line">  <span class="keyword">switch</span>(event)</span><br><span class="line">    event: data received from application above</span><br><span class="line">      create TCP segment with sequence number NextSeqNum</span><br><span class="line">      <span class="keyword">if</span> (timer currently not running)</span><br><span class="line">        start timer</span><br><span class="line">      pass segment to IP</span><br><span class="line">      NextSeqNum=NextSeqNum+length(data)</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    event: timer timeout</span><br><span class="line">      retransmit not-yet-acknowledged segment with smallest sequence number</span><br><span class="line">      start timer</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    event: ACK received, with ACK field value of y</span><br><span class="line">      <span class="title function_">if</span> <span class="params">(y &gt; SendBase)</span>&#123;</span><br><span class="line">        SendBase=y</span><br><span class="line">        <span class="keyword">if</span> (there are currently any not-yet-acknowledged segments)</span><br><span class="line">          start timer</span><br><span class="line">      &#125;</span><br><span class="line">  <span class="keyword">break</span>;</span><br><span class="line">&#125; <span class="comment">/* end of loop forever */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*Not C just pseudocode*/</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>3 scenarios to know RDT in TCP</li>
+</ul>
+<p>​										<img src="https://pic.imgdb.cn/item/654237b7c458853aef73ffc4.png" alt="Screenshot 2023-11-01 at 19.33.09.png" width="45%"></p>
+<img src="https://pic.imgdb.cn/item/654237ddc458853aef746511.png" alt="Screenshot 2023-11-01 at 19.33.20.png" width="60%">
+<p>​						<img src="https://pic.imgdb.cn/item/6542380bc458853aef74e7fb.png" alt="Screenshot 2023-11-01 at 19.33.36.png" width="60%"></p>
+<ul>
+<li>Fast retransmission
+<ul>
+<li>If the TCP sender receives three <em><strong>duplicate ACK</strong></em>s for the same data, it takes this as an indication that the segment following the segment that has been ACKed three times has been lost</li>
+<li>Retransmitting the missing segment <em>before</em> that segment’s timer expires</li>
+</ul>
+</li>
+<li>How to classify RDT in TCP
+<ul>
+<li>A hybrid of GBN and SR protocols</li>
+</ul>
+</li>
+</ul>
+<p><em>Most of the content references “Computer Network A Top-Down Approach(James Kurose, Keith Ross)”</em></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://lzleee.com">LeeZ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://lzleee.com/2023/11/01/RDT/">https://lzleee.com/2023/11/01/RDT/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://lzleee.com" target="_blank">LeeZ's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Computer-Network/">Computer Network</a></div><div class="post_share"><div class="social-share" data-image="https://pic.imgdb.cn/item/65424707c458853aefa5a98c.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/10/24/OS/"><img class="next-cover" src="https://pic.imgdb.cn/item/6537cf26c458853aef6b9113.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Operating System</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Waline</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/headportrait.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">LeeZ</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Lzleee"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Lzleee" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:849770190@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">All feelings are important! <ul> <li>OS</li> <li>Concepts 1 Sheet --NEW</li> </ul></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#RDT-reliable-data-transfer"><span class="toc-number">1.</span> <span class="toc-text">RDT(reliable data transfer)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Stop-and-wait"><span class="toc-number">1.1.</span> <span class="toc-text">Stop-and-wait</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GBN-Go-Back-N"><span class="toc-number">1.2.</span> <span class="toc-text">GBN(Go-Back-N)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SR-selective-repeat"><span class="toc-number">1.3.</span> <span class="toc-text">SR(selective repeat)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RDT-in-TCP"><span class="toc-number">2.</span> <span class="toc-text">RDT in TCP</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/11/01/RDT/" title="Reliable Data Transfer"><img src="https://pic.imgdb.cn/item/65424707c458853aefa5a98c.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Reliable Data Transfer"/></a><div class="content"><a class="title" href="/2023/11/01/RDT/" title="Reliable Data Transfer">Reliable Data Transfer</a><time datetime="2023-11-01T12:40:00.000Z" title="发表于 2023-11-01 20:40:00">2023-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/24/OS/" title="Operating System"><img src="https://pic.imgdb.cn/item/6537cf26c458853aef6b9113.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Operating System"/></a><div class="content"><a class="title" href="/2023/10/24/OS/" title="Operating System">Operating System</a><time datetime="2023-10-24T15:00:00.000Z" title="发表于 2023-10-24 23:00:00">2023-10-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/21/concepts1sheet/" title="Concepts 1 Sheet"><img src="https://pic.imgdb.cn/item/6533f89dc458853aef57fbda.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Concepts 1 Sheet"/></a><div class="content"><a class="title" href="/2023/10/21/concepts1sheet/" title="Concepts 1 Sheet">Concepts 1 Sheet</a><time datetime="2023-10-21T15:00:00.000Z" title="发表于 2023-10-21 23:00:00">2023-10-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/01/machineLearning1/" title="Machine Learning"><img src="https://codingcompiler.com/wp-content/uploads/2019/07/What-is-Machine-Learning.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Machine Learning"/></a><div class="content"><a class="title" href="/2023/09/01/machineLearning1/" title="Machine Learning">Machine Learning</a><time datetime="2023-09-01T15:00:00.000Z" title="发表于 2023-09-01 23:00:00">2023-09-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/28/Database/" title="Database Revision"><img src="https://www.insightsintoimpact.com/wp-content/uploads/2018/01/database-graphic-hi-res.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Database Revision"/></a><div class="content"><a class="title" href="/2023/05/28/Database/" title="Database Revision">Database Revision</a><time datetime="2023-05-28T11:53:00.000Z" title="发表于 2023-05-28 19:53:00">2023-05-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By LeeZ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'pHPLnXTcZaaY2f3qP3K97Z5z-gzGzoHsz',
+      appKey: 'NgbzDzKvxGCGhUUI1dmXbu3F',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadWaline () {
+  function insertCSS () {
+    const link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css"
+    document.head.appendChild(link)
+  }
+
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://waline-in-blog.vercel.app',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline()
+  else {
+    insertCSS()
+    getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+  }
+}
+
+if ('Valine' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="+1,like,up,win" data-fontsize="12px" data-random="true" async="async"></script></div></body></html>
