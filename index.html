@@ -245,7 +245,7 @@
     <header>
       <div>
         <h1>Zhili Li</h1>
-        <p class="headline">MSc Artificial Intelligence and Data Engineering student with experience in multilingual language model evaluation, long-context data generation, and probabilistic weather forecasting.</p>
+        <p class="headline">MSc Artificial Intelligence and Data Engineering student with experience in multilingual language model evaluation, long-context data generation, and agentic AI applications with tool use and persistent memory.</p>
       </div>
       <div class="contact" aria-label="Contact information">
         <a href="mailto:lizhili2003@aliyun.com">lizhili2003@aliyun.com</a>
@@ -361,16 +361,20 @@
         <section>
           <h2>Projects</h2>
           <article class="item">
-            <h3>Probabilistic Spatio-Temporal Weather Forecasting</h3>
+            <h3>Travel Agent: Intelligent Travel Planning Assistant</h3>
             <div class="role-line">
-              <span>Python, PyTorch, Transformers, Pandas</span>
-              <span>Apr 2026</span>
+              <span>Python, OpenAI Agents SDK, FastAPI, Streamlit, SQLite</span>
+              <span>2026</span>
             </div>
             <ul>
-              <li>Built probabilistic 24-hour weather forecasting models on ERA5 Greater London data using 168-hour windows over 49 grid points.</li>
-              <li>Benchmarked ConvLSTM and Transformer models with Gaussian NLL and MC-Dropout uncertainty estimation.</li>
-              <li>Achieved 1.38K MAE and 0.954 Pearson r for 2m temperature forecasting, with 90% interval coverage around 92%-95%.</li>
+              <li>Built an agentic travel planning application using OpenAI-compatible APIs, tool calling, and a FastAPI backend with server-sent event streaming.</li>
+              <li>Integrated external tools for weather lookup, attraction search, Google Places search, and route estimation to support context-aware itinerary generation.</li>
+              <li>Implemented session-based conversation memory with SQLite and LLM summarization to preserve user preferences across multi-turn planning.</li>
+              <li>Developed a Streamlit chat interface with map rendering for interactive itinerary refinement and location-aware travel recommendations.</li>
             </ul>
+            <div class="project-links">
+              Project: <a href="https://github.com/Lzleee/travel_agent">github.com/Lzleee/travel_agent</a>
+            </div>
           </article>
         </section>
 
